@@ -53,9 +53,10 @@ def Init():
     
     response = 'null'
     while(response=='null'):
-        url = "https://6054ba78-9444-4a81-8dde-a60761ffdf08.mock.pstmn.io/2fa"
+        #url = "https://6054ba78-9444-4a81-8dde-a60761ffdf08.mock.pstmn.io/2fa"
+        url = "https://f260-132-170-6-1.ngrok.io/2fa"
         payload = "Ready to start"
-        headers = {'status':"Waiting"}
+        headers = {'status':"ready","email":"androidevourz@gmail.com"}
         try:
             response = requests.request("POST", url, headers=headers, data=payload)
             print("Serveer response: "+response.text)
