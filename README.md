@@ -8,3 +8,7 @@ Periodically the person will get a phone notification to make sure they are stil
 When the turn is up, they'll get a text notification to go purchase the tickets
 
 It eliminates long waiting times and prevents scalpers from buying real tickets.
+
+State Machine Logic:
+
+![State Machine Logic](state_machine_log.jpg)
