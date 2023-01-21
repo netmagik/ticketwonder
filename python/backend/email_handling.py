@@ -3,7 +3,7 @@ import smtplib
 import string
 import random
 import json
-
+from email.message import EmailMessage
 carriers = {
 	'att':    '@mms.att.net',
 	'tmobile':' @tmomail.net',
@@ -22,10 +22,14 @@ def sendEmail(userEmail,message):
     server = smtplib.SMTP( "smtp.gmail.com", 587 )
     server.starttls()
     server.login(auth[0], auth[1])
-
+    msg = EmailMessage()
+    msg['Subject'] ='ticketwonder verification'
+    msg['From'] = auth[0]
+    msg['To'] = userEmail
+    msg.set_content(message)
 	# Send text message through SMS gateway of destination number
     try:
-        server.sendmail( auth[0], userEmail,message )
+        server.send_message(msg)
     except:
         print("Email Sending Failed: "+message)
 
@@ -42,7 +46,7 @@ def get_random_string(length):
     return result_str
 
 def EmailVerifier(userEmail):
-    message = get_random_string(8)
+    message = "Your Verification code is: "+get_random_string(8)
     sendEmail(userEmail,message)
 
 def Init():
