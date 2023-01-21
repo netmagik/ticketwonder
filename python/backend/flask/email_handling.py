@@ -58,7 +58,7 @@ def Init():
         payload = "Ready to start"
         headers = {'status':"ready","email":"androidevourz@gmail.com"}
         try:
-            response = requests.request("POST", url, headers=headers, data=payload)
+            response = requests.request("POST", url, json=headers)
             print("Serveer response: "+response.text)
             rjson = json.loads(response.text)
             if(rjson['status']=='ready'):
